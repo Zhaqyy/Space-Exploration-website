@@ -13,8 +13,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <!--js link--->
-<script type="text/javascript" src="/script.js"></script>
+<script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+
+
+
 <section class="sec1" id="#home">
 <div class="over1">
 <header>
@@ -59,15 +63,24 @@ ending.
 </div>
 </div>
 </section>
-<section>
+
 <section class="testarea">
-<div class="stars">
+
+    <canvas class="glslCanvas" data-fragment-url="/shader.frag" width="100%" height="100%"></canvas>
+    <script>
+        const canvas = document.querySelector('.glslCanvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const sandbox = new GlslCanvas(canvas);
+    </script>
+
 <section class="sec2" id="#starmap">
     <div class="floatyhead" >
         <h1>Star Map</h1>
         <div class="float1"></div>
         <div class="float2"></div>
     </div>
+ 
     <div class="moon">
         <div class="planetImg">
             <img src="/img/moon.png" alt="moon">
@@ -207,8 +220,8 @@ ending.
     </div>
 </section>
 </section>
-</div>
-</section>
+
+
 <footer class="footer-distributed">
 <div class="footer-left">
     <a href="#home" class="logo">

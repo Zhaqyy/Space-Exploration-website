@@ -7,12 +7,15 @@
   list-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --bg-color: #222327;
   --text-color: #fff;
   --main-color: hsl(40, 50%, 50%);
   width: -moz-fit-content;
-  width: -webkit-fit-content;
   width: fit-content;
 }
 
@@ -30,6 +33,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  position: relative;
 }
 
 /*
@@ -38,7 +42,6 @@ body {
 img,
 picture,
 video,
-canvas,
 svg {
   display: block;
   max-width: 100%;
@@ -112,7 +115,7 @@ h6 {
   text-shadow: 5px 4px 8px black;
 }
 .sec1 .over1 .txt .btn {
-  background-color: hsl(40deg, 50%, 50%);
+  background-color: hsl(40, 50%, 50%);
   color: white;
   border-radius: 10px;
   padding-block: 5px;
@@ -245,7 +248,7 @@ h6 {
 }
 
 .logo span {
-  color: hsl(40deg, 50%, 60%);
+  color: hsl(40, 50%, 60%);
   font-size: 1.7rem;
   font-weight: 600;
 }
@@ -267,9 +270,25 @@ h6 {
     font-weight: 100;
   }
 }
+.testarea {
+  position: relative;
+  background-color: rgba(34, 35, 39, 0.2196078431);
+  min-height: max(125rem, 250vh);
+}
+
 .sec2 {
   display: grid;
   margin-block: 5vh;
+}
+
+.glslCanvas {
+  top: 0;
+  left: 0;
+  outline: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .floatyhead {
@@ -280,7 +299,7 @@ h6 {
 .floatyhead h1 {
   text-align: center;
   opacity: 0;
-  color: hsl(0deg, 0%, 50%);
+  color: hsl(0, 0%, 50%);
 }
 
 .float1 {
@@ -289,7 +308,7 @@ h6 {
   position: absolute;
   top: 10%;
   left: 10%;
-  background-color: hsl(228deg, 7%, 30%);
+  background-color: hsl(228, 7%, 30%);
   border-radius: 10px;
   z-index: 5;
 }
@@ -301,7 +320,7 @@ h6 {
   position: absolute;
   top: -10%;
   left: -20%;
-  background-color: hsl(228deg, 3%, 45%);
+  background-color: hsl(228, 3%, 45%);
   border-radius: 10px;
   z-index: 4;
 }
@@ -313,7 +332,7 @@ h6 {
   position: absolute;
   top: 50%;
   left: 90%;
-  background-color: hsla(228deg, 3%, 50%, 0.39);
+  background-color: hsla(228, 3%, 50%, 0.39);
   border-radius: 10px;
   z-index: 3;
 }
@@ -324,7 +343,7 @@ h6 {
   position: absolute;
   bottom: 10%;
   left: 25%;
-  background-color: hsl(228deg, 7%, 20%);
+  background-color: hsl(228, 7%, 20%);
   border-radius: 10px;
   z-index: 5;
 }
@@ -336,7 +355,7 @@ h6 {
   position: absolute;
   top: -10%;
   left: -20%;
-  background-color: hsl(228deg, 3%, 25%);
+  background-color: hsl(228, 3%, 25%);
   border-radius: 10px;
   z-index: 4;
 }
@@ -348,7 +367,7 @@ h6 {
   position: absolute;
   top: 90%;
   left: 40%;
-  background-color: hsl(228deg, 3%, 30%);
+  background-color: hsl(228, 3%, 30%);
   border-radius: 10px;
   z-index: 3;
 }
@@ -361,22 +380,10 @@ h6 {
   position: relative;
 }
 .floatyhead .float2 {
-  -webkit-animation: slide-right 3s ease-in-out both;
   animation: slide-right 3s ease-in-out both;
 }
 .floatyhead .float1 {
-  -webkit-animation: slide-left 3s ease-in-out both;
   animation: slide-left 3s ease-in-out both;
-}
-
-@-webkit-keyframes slide-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100px);
-    transform: translateY(20px);
-  }
 }
 @keyframes slide-right {
   0% {
@@ -387,7 +394,7 @@ h6 {
     transform: translateY(20px);
   }
 }
-@-webkit-keyframes slide-left {
+@keyframes slide-left {
   0% {
     transform: translateX(0);
   }
@@ -395,12 +402,10 @@ h6 {
     transform: translateX(-150px);
   }
 }
-@keyframes slide-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-150px);
+@media (max-width: 450px) {
+  .sec2 > div {
+    max-width: 100vw;
+    margin-inline: unset;
   }
 }
 .moon {
@@ -430,17 +435,7 @@ h6 {
 
 .planetImg {
   width: 270px;
-  -webkit-animation: planetImg 60s ease-in-out infinite;
   animation: planetImg 60s ease-in-out infinite;
-}
-
-@-webkit-keyframes planetImg {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 @keyframes planetImg {
   0% {
@@ -512,7 +507,7 @@ hr {
 }
 .about .meet {
   margin: 5vw;
-  background: hsla(216deg, 10%, 20%, 0.95);
+  background: hsla(216, 10%, 20%, 0.95);
   border-radius: 35px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
   padding: 25px;
@@ -522,10 +517,10 @@ hr {
 }
 .about h1 {
   margin-bottom: 20px;
-  color: hsl(0deg, 0%, 60%);
+  color: hsl(0, 0%, 60%);
 }
 .about p {
-  color: hsl(0deg, 0%, 80%);
+  color: hsl(0, 0%, 80%);
 }
 
 .teamSec {
@@ -533,7 +528,7 @@ hr {
   position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 15vh;
+  padding-bottom: 15vh;
 }
 .teamSec .container {
   display: flex;
@@ -545,7 +540,7 @@ hr {
 }
 .teamSec .meet {
   margin: 5vw;
-  background: hsl(215deg, 10%, 20%);
+  background: hsl(215, 10%, 20%);
   border-radius: 35px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
   padding: 25px;
@@ -554,10 +549,10 @@ hr {
 }
 .teamSec .meet h1 {
   margin-bottom: 20px;
-  color: hsl(0deg, 0%, 60%);
+  color: hsl(0, 0%, 60%);
 }
 .teamSec .meet p {
-  color: hsl(0deg, 0%, 80%);
+  color: hsl(0, 0%, 80%);
 }
 .teamSec .container .team {
   width: auto;
@@ -569,7 +564,7 @@ hr {
 .teamSec .container .team .member {
   width: 325px;
   margin: 10px;
-  background: hsl(215deg, 10%, 20%);
+  background: hsl(215, 10%, 20%);
   border-radius: 35px;
   box-shadow: inset -25px 25px 50px #18191b, inset 25px -25px 50px #2c2e33;
   padding: 25px;
@@ -578,21 +573,21 @@ hr {
   width: 80px;
 }
 .teamSec .container .team .member h3 {
-  color: hsl(0deg, 0%, 50%);
+  color: hsl(0, 0%, 50%);
 }
 .teamSec .container .team .member span {
   font-size: 12px;
-  color: hsl(0deg, 0%, 60%);
+  color: hsl(0, 0%, 60%);
 }
 .teamSec .container .team .member p {
   margin: 15px 0;
   font-weight: 400;
-  color: hsl(0deg, 0%, 80%);
+  color: hsl(0, 0%, 80%);
   font-size: 15px;
   text-align: justify;
 }
 .teamSec .container .team .member .btn a {
-  background: hsl(0deg, 0%, 87%);
+  background: hsl(0, 0%, 87%);
   display: block;
   float: right;
   width: 125px;
@@ -608,150 +603,16 @@ hr {
   color: #fff;
 }
 
-.testarea {
-  perspective: 50vmin;
-}
-.testarea * {
-  transform-style: preserve-3d;
-}
-.testarea *:before,
-.testarea *:after {
-  box-sizing: border-box;
-  transform-style: preserve-3d;
-  position: absolute;
-  content: "";
-}
-.testarea .stars {
-  position: relative;
-  overflow: hidden;
-}
-.testarea .stars:before,
-.testarea .stars:after {
-  width: 100%;
-  height: -webkit-fill-available;
-  height: -moz-available;
-  content: "";
-  background: rgba(255, 255, 255, 0);
-  background-image: repeating-conic-gradient(rgba(255, 255, 255, 0.5333333333) 0%, transparent 0.0002%, transparent 0.075%, transparent 0.65%), repeating-conic-gradient(#FFF 0%, transparent 0.0004%, transparent 0.05%, transparent 0.495%);
-  transform: translateZ(-40vmin);
-  opacity: 0;
-  -webkit-animation: stars 25s ease-in-out 0s infinite;
-          animation: stars 25s ease-in-out 0s infinite;
-}
-.testarea .stars:after {
-  -webkit-animation-name: stars2;
-          animation-name: stars2;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-@-webkit-keyframes stars {
-  0% {
-    transform: translateZ(-40vmin);
-    opacity: 0;
-  }
-  30%, 70% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateZ(40vmin) rotate(15deg);
-    opacity: 0;
-  }
-}
-@keyframes stars {
-  0% {
-    transform: translateZ(-40vmin);
-    opacity: 0;
-  }
-  30%, 70% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateZ(40vmin) rotate(15deg);
-    opacity: 0;
-  }
-}
-@-webkit-keyframes stars2 {
-  0% {
-    transform: translateZ(-40vmin) rotate(180deg);
-    opacity: 0;
-  }
-  30%, 70% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateZ(40vmin) rotate(195deg);
-    opacity: 0;
-  }
-}
-@keyframes stars2 {
-  0% {
-    transform: translateZ(-40vmin) rotate(180deg);
-    opacity: 0;
-  }
-  30%, 70% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateZ(40vmin) rotate(195deg);
-    opacity: 0;
-  }
-}
-.testarea .stars + .stars::before {
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
-}
-.testarea .stars + .stars::after {
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s;
-}
-
 .footer-distributed {
-  background: hsl(216deg, 10%, 20%);
+  background: hsl(216, 10%, 20%);
   box-shadow: -4px -4px 5px 4px rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
   text-align: left;
   padding: 24px 45px 25px;
   overflow: hidden;
-  -webkit-animation: foot 10s ease-in-out infinite;
-          animation: foot 10s ease-in-out infinite;
 }
 
-@-webkit-keyframes foot {
-  0% {
-    background: hsl(216deg, 10%, 20%);
-  }
-  50% {
-    background: hsla(216deg, 10%, 20%, 0);
-  }
-  100% {
-    background: hsl(216deg, 10%, 20%);
-  }
-}
-
-@keyframes foot {
-  0% {
-    background: hsl(216deg, 10%, 20%);
-  }
-  50% {
-    background: hsla(216deg, 10%, 20%, 0);
-  }
-  100% {
-    background: hsl(216deg, 10%, 20%);
-  }
-}
 /* Footer left */
 .footer-distributed .footer-left {
   float: left;
@@ -896,7 +757,7 @@ hr {
     font-size: 12px;
   }
   .footer-distributed form input,
-.footer-distributed form textarea {
+  .footer-distributed form textarea {
     width: 250px;
   }
   .footer-distributed form button {
@@ -910,7 +771,7 @@ hr {
     text-align: center;
   }
   .footer-distributed .footer-left,
-.footer-distributed .footer-right {
+  .footer-distributed .footer-right {
     float: none;
     max-width: 300px;
     margin: 0 auto;
@@ -929,20 +790,7 @@ hr {
   }
 }
 * hr {
-  -webkit-animation: HRrot 10s ease-in-out 2s infinite !important;
-          animation: HRrot 10s ease-in-out 2s infinite !important;
-}
-
-@-webkit-keyframes HRrot {
-  0% {
-    transform: rotate3d(1, 1, 1, 0deg);
-  }
-  50% {
-    transform: rotate3d(1, 1, 1, 360deg);
-  }
-  100% {
-    transform: rotate3d(1, 1, 1, 0deg);
-  }
+  animation: HRrot 10s ease-in-out 2s infinite !important;
 }
 
 @keyframes HRrot {
