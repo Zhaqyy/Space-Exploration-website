@@ -272,7 +272,7 @@ h6 {
 }
 .testarea {
   position: relative;
-  background-color: rgba(34, 35, 39, 0.2196078431);
+  background-color: rgba(34, 35, 39, 0.6039215686);
   min-height: max(125rem, 250vh);
 }
 
