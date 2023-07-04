@@ -67,7 +67,7 @@ void main( )
     float StarFieldThreshhold = 0.97;
 
     // Stars with a slow spin.
-    float fSpinRate = 0.001;
+    float fSpinRate = 0.009;
     vec2 vInputPos = ( 2.0 * gl_FragCoord.xy/iResolution.y ) - vec2( 1.0, 1.0 );
     float fSampleAngle = fSpinRate * iTime+4. + atan( vInputPos.y, vInputPos.x );
     vec2 vSamplePos = ( 0.5 * length( vInputPos ) * vec2( cos( fSampleAngle ), sin( fSampleAngle ) ) + vec2( 0.5, 0.5 ) ) * iResolution.y;
