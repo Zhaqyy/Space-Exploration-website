@@ -81,7 +81,7 @@ h6 {
 
 .sec1 {
   height: 100vh;
-  background-image: url(/img/hero01.png);
+  background-image: url(/img/hero01.webp);
   background-position: center;
   background-size: cover;
   -webkit-mask-image: linear-gradient(black 90%, transparent);
